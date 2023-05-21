@@ -1,0 +1,62 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SecondActivity"
+    android:background="#222222">
+
+    <ImageView
+        android:id="@+id/UniversityImage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toBottomOf="@id/secondTextView"
+        app:layout_constraintBottom_toTopOf="@id/UniversityName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/UniversityName"
+        android:layout_width="336dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:padding="8dp"
+        android:textColor="#ffffff"
+        android:textSize="18dp"
+        android:text="Our website is dedicated to providing information and experience about Scandinavian universities around the world. Whether you're a student looking for an institution or you just want to learn about different universities and what they have to offer, we're here to help.\n\nHere are various universities with name, location, population, and interesting description. Immerse yourself in the rich academic environment and vibrant community that this institution offers."
+        app:layout_constraintBottom_toTopOf="@+id/UniversityText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UniversityImage" />
+
+    <TextView
+        android:id="@+id/secondTextView"
+        android:layout_width="325dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="80dp"
+        android:background="#222222"
+        android:padding="8dp"
+        android:textColor="#ffffff"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/UniversityText"
+        android:layout_width="325dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="182dp"
+        android:layout_marginEnd="213dp"
+        android:layout_marginBottom="60dp"
+        android:padding="8dp"
+        android:textColor="#ffffff"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.429"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

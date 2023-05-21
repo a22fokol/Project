@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:background="@drawable/card_edges">
+
+    <TextView
+        android:id="@+id/UniversityName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/text_edges"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:padding="8dp"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/UniversityLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/text_edges"
+        android:textColor="#ffffff"
+        android:textSize="16dp"
+        android:padding="8dp" />
+
+    <TextView
+        android:id="@+id/UniversityPopulation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:padding="8dp"
+        android:layout_marginTop="8dp" />
+
+    <ImageView
+        android:id="@+id/UniversityImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true" />
+
+</LinearLayout>
