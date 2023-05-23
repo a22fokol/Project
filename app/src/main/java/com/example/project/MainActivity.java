@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
 
         recyclerView = findViewById(R.id.recyclerView);
 
-        // Create and populate the university list
+        /// Created and populate the university list
         ArrayList<Country> universityList = new ArrayList<>();
 
         universityList.add(new Country("University of Umeå (Swedeen)", "Umeå", 132235,
