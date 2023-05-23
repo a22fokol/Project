@@ -14,7 +14,7 @@ public class UniversityDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_university_details);
 
-        // Retrieve the university object from the intent
+        // Retrieved the university object from the intent
         Intent intent = getIntent();
         Country university = (Country) intent.getSerializableExtra("university");
 

@@ -1,4 +1,8 @@
-/*
+rapport.
+
+
+
+
 Lista över universitet: Denna app listar universitet i Skandinavien. inklusive namnet på universitetet och.
 Håll visuellt tilltalande och organiserad.
 
@@ -24,24 +28,35 @@ Picasso-bibliotek för att ladda och visa bilder från webbadresser.
 */
 
 
-/*
-@Override
-public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-Country university = universityList.get(position);
+public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public TextView universityName;
+public TextView universityLocation;
+public TextView universityPopulation;
+public ImageView universityImage;
 
-/*
-        // Set the university name
-        holder.universityName.setText(university.getName());
 
-        // Set the university location with population
-        String locationWithPopulation = university.getLocation() + " (Population: " + university.getPopulation() + ")";
-        holder.universityLocation.setText(locationWithPopulation);
+```
+        public MyViewHolder(View view) {
+            super(view);
+            universityName = view.findViewById(R.id.UniversityName);
+            universityLocation = view.findViewById(R.id.UniversityLocation);
+            universityPopulation = view.findViewById(R.id.UniversityPopulation);
+            universityImage = view.findViewById(R.id.UniversityImage);
 
-        // Set the university image
-        Picasso.get().load(university.getImageUrl()).into(holder.universityImage);
+            view.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int position = getBindingAdapterPosition();
+            if (position != RecyclerView.NO_POSITION) {
+                Country university = universityList.get(position);
+                listener.onItemClick(university);
+            }
+        }
     }
-*/
+}
+```
 
-![Project1](images/Project1.png)
-![](Project2.png)
-![](Project3.png)
+![](photo1.png)
+![](photo2.png)
