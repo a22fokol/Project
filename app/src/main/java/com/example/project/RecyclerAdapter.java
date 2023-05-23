@@ -36,7 +36,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         // Set the university name
         holder.universityName.setText(university.getName());
 
-        // Set the university location with population
+        // Set the university locations with population
         String locationWithPopulation = university.getLocation() + " (Population: " + university.getPopulation() + ")";
         holder.universityLocation.setText(locationWithPopulation);
 
