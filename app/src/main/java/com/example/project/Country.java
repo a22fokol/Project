@@ -9,7 +9,7 @@ public class Country implements Serializable {
     private int population;
     private String description;
     private String imageUrl;
-    private String website; // Additional field for website
+    private String website; // Additionaly field for website
 
     public Country(String name, String location, int population, String description, String imageUrl, String website) {
         this.name = name;
