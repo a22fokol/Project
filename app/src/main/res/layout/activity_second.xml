@@ -1,10 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondActivity"
-    android:background="#222222">
+    android:background="#222222"
+    tools:context=".SecondActivity">
 
     <ImageView
         android:id="@+id/UniversityImage"
@@ -25,11 +27,8 @@
         android:textColor="#ffffff"
         android:textSize="18dp"
         android:text="Our website is dedicated to providing information and experience about Scandinavian universities around the world. Whether you're a student looking for an institution or you just want to learn about different universities and what they have to offer, we're here to help.\n\nHere are various universities with name, location, population, and interesting description. Immerse yourself in the rich academic environment and vibrant community that this institution offers."
-        app:layout_constraintBottom_toTopOf="@+id/UniversityText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.46"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UniversityImage" />
+        app:layout_constraintBottom_toTopOf="@+id/UniversityName"
+        tools:ignore="MissingConstraints,NotSibling" />
 
     <TextView
         android:id="@+id/secondTextView"
@@ -45,7 +44,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/UniversityText"
+        android:id="@+id/UniversityName"
         android:layout_width="325dp"
         android:layout_height="47dp"
         android:layout_marginStart="182dp"
@@ -57,6 +56,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.429"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="DuplicateIds" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

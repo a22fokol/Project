@@ -1,62 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/nameTextView"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewName"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:text="University Name" />
+        android:text="University Name" />
 
     <TextView
-        android:id="@+id/locationTextView"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewLocation"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/nameTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:text="University Location" />
+        android:text="University Location" />
 
     <TextView
-        android:id="@+id/populationTextView"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewSize"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/locationTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:text="University Population" />
+        android:text="University Size" />
 
     <TextView
-        android:id="@+id/descriptionTextView"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewCost"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/populationTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:text="University Description" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:src="@drawable/university_image" />
+        android:text="University Cost" />
 
     <TextView
-        android:id="@+id/websiteTextView"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewCategory"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:text="University Website" />
+        android:text="University Category" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
