@@ -1,7 +1,9 @@
 package com.example.project;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -10,6 +12,16 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements RecyclerAdapter.OnItemClickListener {
@@ -23,30 +35,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
 
         recyclerView = findViewById(R.id.recyclerView);
 
-        /// Created and populate the university list
-        ArrayList<Country> universityList = new ArrayList<>();
+        // Create an empty university list
+        ArrayList<University> universityList = new ArrayList<>();
 
-        universityList.add(new Country("University of Umeå (Swedeen)", "Umeå", 132235,
-                "University of Umeå is a state university located in Umeå,county of Västerbotten , founded in 1965",
-                "https://www.umu.se/globalassets/qbank/arkitekthogskolan_8848_170808_ubs-10897crop016254723078resize1280720autoorientquality90density150stripextensionjpgid16.jpg?format=webp&mode=crop&width=1280",
-                "https://mobprog.webug.se/json-api?login=a22fokol"));
-
-        universityList.add(new Country("University of Helsinki (Finland)", "Helsinki", 1338000,
-                "University of Helsinki is the main and oldest university in Finland,locate in southern finland the capital Helsinki.",
-                "https://thumbs.dreamstime.com/z/main-building-university-helsinki-finland-34277733.jpg",
-                "https://mobprog.webug.se/json-api?login=a22fokol"));
-
-        universityList.add(new Country("University of Oslo (Norway)", "Olso", 1086000,
-                "University of Oslo is the oldest and largest institution of higher education in Norway",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/The_University_of_Oslo.jpg/1024px-The_University_of_Oslo.jpg",
-                "https://mobprog.webug.se/json-api?login=a22fokol"));
-
-        universityList.add(new Country("University of Copenhagen (Danemark)", "Copenhagen",
-                1381000, "University of Copenhagen is Denmark's oldest and largest educational and research institution.",
-                "https://uniavisen.dk/wp-content/uploads/2018/02/landbohoejskolen2.jpg",
-                "https://mobprog.webug.se/json-api?login=a22fokol"));
-
-        // Create an instance of the RecyclerAdapter with the university list and listener
+        // Create an instance of the RecyclerAdapter with the empty university list and listener
         adapter = new RecyclerAdapter(universityList, this);
 
         // Set the adapter for the RecyclerView
@@ -56,6 +48,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        // Fetch university data from the URL
+        FetchUniversityDataTask task = new FetchUniversityDataTask();
+        task.execute("https://mobprog.webug.se/json-api?login=a22fokol");
     }
 
     @Override
@@ -78,10 +74,63 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
     }
 
     @Override
-    public void onItemClick(Country university) {
-        // Handle item click
+    public void onItemClick(University university) {
+        // Create an intent to start the UniversityDetailsActivity
         Intent intent = new Intent(MainActivity.this, UniversityDetailsActivity.class);
         intent.putExtra("university", university);
         startActivity(intent);
+    }
+
+    private class FetchUniversityDataTask extends AsyncTask<String, Void, ArrayList<University>> {
+        @Override
+        protected ArrayList<University> doInBackground(String... urls) {
+            ArrayList<University> universityList = new ArrayList<>();
+
+            try {
+                URL url = new URL(urls[0]);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("GET");
+
+                InputStream inputStream = connection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                StringBuilder stringBuilder = new StringBuilder();
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(line).append("\n");
+                }
+                bufferedReader.close();
+                inputStream.close();
+
+                JSONArray jsonArray = new JSONArray(stringBuilder.toString());
+
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                    String id = jsonObject.getString("ID");
+                    String name = jsonObject.getString("name");
+                    String login = jsonObject.getString("type");
+                    String company = jsonObject.getString("company");
+                    String location = jsonObject.getString("location");
+                    String category = jsonObject.getString("category");
+                    int size = jsonObject.getInt("size");
+                    int cost = jsonObject.getInt("cost");
+                    String auxData = jsonObject.getString("auxdata");
+
+                    University university = new University(id, name, login, company, location, category,
+                            String.valueOf(size), String.valueOf(cost), auxData, new ArrayList<>());
+                    universityList.add(university);
+                }
+            } catch (IOException | JSONException e) {
+                e.printStackTrace();
+            }
+
+            return universityList;
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<University> universityList) {
+            // Update the university list in the adapter
+            adapter.updateUniversityList(universityList);
+        }
     }
 }
