@@ -29,22 +29,22 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.O
         universityList.add(new Country("University of Umeå (Swedeen)", "Umeå", 132235,
                 "University of Umeå is a state university located in Umeå,county of Västerbotten , founded in 1965",
                 "https://www.umu.se/globalassets/qbank/arkitekthogskolan_8848_170808_ubs-10897crop016254723078resize1280720autoorientquality90density150stripextensionjpgid16.jpg?format=webp&mode=crop&width=1280",
-                "https://www.umu.se/"));
+                "https://mobprog.webug.se/json-api?login=a22fokol"));
 
         universityList.add(new Country("University of Helsinki (Finland)", "Helsinki", 1338000,
                 "University of Helsinki is the main and oldest university in Finland,locate in southern finland the capital Helsinki.",
                 "https://thumbs.dreamstime.com/z/main-building-university-helsinki-finland-34277733.jpg",
-                "https://www.helsinki.fi/en"));
+                "https://mobprog.webug.se/json-api?login=a22fokol"));
 
         universityList.add(new Country("University of Oslo (Norway)", "Olso", 1086000,
                 "University of Oslo is the oldest and largest institution of higher education in Norway",
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/The_University_of_Oslo.jpg/1024px-The_University_of_Oslo.jpg",
-                "https://www.uio.no/english/"));
+                "https://mobprog.webug.se/json-api?login=a22fokol"));
 
         universityList.add(new Country("University of Copenhagen (Danemark)", "Copenhagen",
                 1381000, "University of Copenhagen is Denmark's oldest and largest educational and research institution.",
                 "https://uniavisen.dk/wp-content/uploads/2018/02/landbohoejskolen2.jpg",
-                "https://www.ku.dk/english/"));
+                "https://mobprog.webug.se/json-api?login=a22fokol"));
 
         // Create an instance of the RecyclerAdapter with the university list and listener
         adapter = new RecyclerAdapter(universityList, this);

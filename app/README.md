@@ -25,14 +25,7 @@ Java programmeringsspråk för att implementera applikationslogik och funktional
 Androids RecyclerView för att lista universiteten på ett rullningsbart och effektivt sätt.
 Parsar JSON för att extrahera utbildningsdata från fjärr-API- och modellapplikationsdata.
 Picasso-bibliotek för att ladda och visa bilder från webbadresser.
-*/
 
-
-public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-public TextView universityName;
-public TextView universityLocation;
-public TextView universityPopulation;
-public ImageView universityImage;
 
 
 ```
