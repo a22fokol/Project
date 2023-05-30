@@ -10,7 +10,7 @@
         android:id="@+id/UniversityName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/text_edges"
+        android:background="#FF0000"
         android:textColor="#ffffff"
         android:textSize="20dp"
         android:padding="8dp"
@@ -20,7 +20,7 @@
         android:id="@+id/UniversityLocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/text_edges"
+        android:background="#0000FF"
         android:textColor="#ffffff"
         android:textSize="16dp"
         android:padding="8dp" />
@@ -29,7 +29,16 @@
         android:id="@+id/UniversityCost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/text_edges"
+        android:background="#FF0000"
+        android:textColor="#ffffff"
+        android:textSize="16dp"
+        android:padding="8dp" />
+
+    <TextView
+        android:id="@+id/UniversityCompany"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FF00FF"
         android:textColor="#ffffff"
         android:textSize="16dp"
         android:padding="8dp" />
@@ -38,7 +47,7 @@
         android:id="@+id/UniversitySize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/text_edges"
+        android:background="#800080"
         android:textColor="#ffffff"
         android:textSize="16dp"
         android:padding="8dp" />
@@ -47,7 +56,7 @@
         android:id="@+id/UniversityCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/text_edges"
+        android:background="#FF00AF"
         android:textColor="#ffffff"
         android:textSize="16dp"
         android:padding="8dp" />
@@ -56,14 +65,9 @@
         android:id="@+id/UniversityId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#008000"
         android:textColor="#ffffff"
         android:padding="8dp"
         android:layout_marginTop="8dp" />
-
-    <ImageView
-        android:id="@+id/UniversityImage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true" />
 
 </LinearLayout>

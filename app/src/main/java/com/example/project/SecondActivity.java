@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SecondActivity extends AppCompatActivity {
     TextView secondTextView;
-    TextView nameView; // Declared a single variable for TextView
+    TextView nameView; // Declare a single variable for TextView
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
