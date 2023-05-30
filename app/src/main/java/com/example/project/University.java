@@ -1,59 +1,35 @@
 package com.example.project;
 
-import java.io.Serializable;
-import java.util.List;
-import com.example.project.University;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-
-
-public class University implements Serializable {
+public class University implements Parcelable {
     private String id;
     private String name;
-    private String login;
     private String company;
     private String location;
     private String category;
     private int size;
     private int cost;
-    private String auxData;
-    private List<String> imageUrls;
 
-
-    public University(String id, String name, String login, String company, String location, String category, String sizeStr, String costStr, String auxData, List<String> imageUrls) {
+    public University(String id, String name, String login, String company, String location, String category, int size, int cost) {
         this.id = id;
         this.name = name;
-        this.login = login;
         this.company = company;
         this.location = location;
         this.category = category;
-        this.size = Integer.parseInt(sizeStr);
-        this.cost = Integer.parseInt(costStr);
-        this.auxData = auxData;
-        this.imageUrls = imageUrls;
+        this.size = size;
+        this.cost = cost;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public String getCompany() {
-        return company;
-    }
+    // Getters and setters
 
     public String getLocation() {
         return location;
     }
 
-    public String getCategory() {
-        return category;
+    public String getName() {
+        return name;
     }
 
     public int getSize() {
@@ -64,48 +40,55 @@ public class University implements Serializable {
         return cost;
     }
 
-    public String getAuxData() {
-        return auxData;
+    public String getCategory() {
+        return category;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getCompany() {
+        return company;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getId() {
+        return id;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    // Parcelable implementation
+
+    protected University(Parcel in) {
+        id = in.readString();
+        name = in.readString();
+        company = in.readString();
+        location = in.readString();
+        category = in.readString();
+        size = in.readInt();
+        cost = in.readInt();
     }
 
-    public void setCompany(String company) {
-        this.company = company;
+    public static final Creator<University> CREATOR = new Creator<University>() {
+        @Override
+        public University createFromParcel(Parcel in) {
+            return new University(in);
+        }
+
+        @Override
+        public University[] newArray(int size) {
+            return new University[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-    public List<String> getImageUrls() {
-        return imageUrls;
-    }
-    public void setImageUrls(List<String> imageUrls) {
-        this.imageUrls = imageUrls;
-    }
-    public void setCost(int cost) {
-        this.cost = cost;
-    }
-
-    public void setAuxData(String auxData) {
-        this.auxData = auxData;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(name);
+        dest.writeString(company);
+        dest.writeString(location);
+        dest.writeString(category);
+        dest.writeInt(size);
+        dest.writeInt(cost);
     }
 }
